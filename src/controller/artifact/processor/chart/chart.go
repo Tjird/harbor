@@ -39,7 +39,8 @@ const (
 
 	// as helm put the media type definition under "internal" package, we cannot
 	// import it, defines it by ourselves
-	mediaType = "application/vnd.cncf.helm.config.v1+json"
+	mediaType           = "application/vnd.cncf.helm.config.v1+json"
+	provenanceMediaType = "application/vnd.cncf.helm.chart.provenance.v1.prov"
 )
 
 func init() {
@@ -78,6 +79,10 @@ func (p *processor) AbstractAddition(_ context.Context, artifact *artifact.Artif
 	}
 
 	for _, layer := range manifest.Layers {
+		if layer.MediaType == provenanceMediaType {
+			continue
+		}
+
 		// chart do have two layers, one is config, we should resolve the other one.
 		layerDgst := layer.Digest.String()
 		if layerDgst != manifest.Config.Digest.String() {

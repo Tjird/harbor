@@ -34,7 +34,7 @@ import (
 )
 
 var (
-	chartManifest = `{"schemaVersion":2,"config":{"mediaType":"application/vnd.cncf.helm.config.v1+json","digest":"sha256:76a59ebef39013bf7b57e411629b569a5175590024f31eeaaa577a0f8da9e523","size":528},"layers":[{"mediaType":"application/tar+gzip","digest":"sha256:0bd64cfb958b68c71b46597e22185a41e784dc96e04090bc7d2a480b704c3b65","size":12607}]}`
+	chartManifest = `{"schemaVersion":2,"config":{"mediaType":"application/vnd.cncf.helm.config.v1+json","digest":"sha256:76a59ebef39013bf7b57e411629b569a5175590024f31eeaaa577a0f8da9e523","size":528},"layers":[{"mediaType":"application/vnd.cncf.helm.chart.provenance.v1.prov","digest":"sha256:1111111111111111111111111111111111111111111111111111111111111111","size":1024},{"mediaType":"application/tar+gzip","digest":"sha256:0bd64cfb958b68c71b46597e22185a41e784dc96e04090bc7d2a480b704c3b65","size":12607}]}`
 	chartYaml     = `{
   "name":"redis",
   "home": "http://redis.io/",
